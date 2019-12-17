@@ -1,9 +1,12 @@
 set noswapfile
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 syntax on
 colorscheme substrata
 set fillchars+=vert:│
 set relativenumber
 set hlsearch
+"TODO: need to choose better keymap for this whitespaces-toggle
+"nnoremap <silent> <C-W> :set list!<CR>
 nnoremap <silent> mm :FZF<CR>
 nnoremap <silent> tt :NERDTreeToggle<CR>
 nnoremap ff :Rg<Space>
@@ -22,7 +25,10 @@ autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 let g:rg_command = 'rg --vimgrep -S'
 
 let g:airline_theme='minimalist'
-set laststatus=0
+function! Init()
+  set laststatus=0
+endfunction
+autocmd VimEnter * call Init()
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#show_tab_nr = 1
@@ -43,7 +49,7 @@ nmap t7 <Plug>AirlineSelectTab7
 nmap t8 <Plug>AirlineSelectTab8
 nmap t9 <Plug>AirlineSelectTab9
 
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab 
 highlight clear SignColumn
 highlight GitGutterAdd ctermfg=green
 highlight GitGutterChange ctermfg=yellow
