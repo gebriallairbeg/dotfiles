@@ -1,12 +1,10 @@
 set noswapfile
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣ "to apply whitespaces-mode call :set list!
 syntax on
 colorscheme substrata
 set fillchars+=vert:│
 set relativenumber
 set hlsearch
-"TODO: need to choose better keymap for this whitespaces-toggle
-"nnoremap <silent> <C-W> :set list!<CR>
 nnoremap <silent> mm :FZF<CR>
 nnoremap <silent> tt :NERDTreeToggle<CR>
 nnoremap ff :Rg<Space>
@@ -20,13 +18,14 @@ function QuickFixToggle()
 	:copen
 	return 0
 endfunction
-nnoremap F :call QuickFixToggle()<CR>
+nnoremap fq :call QuickFixToggle()<CR>
+nnoremap gc :GitGutterPreviewHunk<CR>
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 let g:rg_command = 'rg --vimgrep -S'
 
 let g:airline_theme='minimalist'
 function! Init()
-  set laststatus=0
+	set laststatus=0
 endfunction
 autocmd VimEnter * call Init()
 let g:airline#extensions#tabline#enabled = 1
@@ -64,9 +63,9 @@ let g:auto_save        = 1
 let g:auto_save_silent = 1
 let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
 let g:ale_linters = {
-\   'python': ['flake8', 'pylint'],
-\   'javascript': ['eslint'],
-\}
+			\   'python': ['flake8', 'pylint'],
+			\   'javascript': ['eslint'],
+			\}
 let g:ale_sign_error = 'ᐅ'
 let g:ale_sign_warning = 'ᐅ'
 let g:deoplete#enable_at_startup = 1
@@ -89,12 +88,13 @@ Plug 'arzg/vim-substrata'
 Plug '907th/vim-auto-save'
 Plug 'dense-analysis/ale'
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+	Plug 'Shougo/deoplete.nvim'
+	Plug 'roxma/nvim-yarp'
+	Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end() 
+
