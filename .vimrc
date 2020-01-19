@@ -77,11 +77,9 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
-"Plug 'mileszs/ack.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim' "requires vim-fugitive
-"Plug 'ap/vim-buftabline' " temporally replaced with vim-airline
 Plug 'scrooloose/nerdtree'
 Plug 'arzg/vim-substrata'
 Plug '907th/vim-auto-save'
