@@ -68,7 +68,6 @@ let g:ale_linters = {
 			\}
 let g:ale_sign_error = 'ᐅ'
 let g:ale_sign_warning = 'ᐅ'
-let g:deoplete#enable_at_startup = 1
 
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -87,13 +86,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'arzg/vim-substrata'
 Plug '907th/vim-auto-save'
 Plug 'dense-analysis/ale'
-if has('nvim')
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-	Plug 'Shougo/deoplete.nvim'
-	Plug 'roxma/nvim-yarp'
-	Plug 'roxma/vim-hug-neovim-rpc'
-endif
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end() 
